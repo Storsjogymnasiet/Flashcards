@@ -1,0 +1,141 @@
+
+    <!DOCTYPE html>
+    <html lang="sv">
+    <head>
+        <meta charset="utf-8">
+        <title>Namngivning</title>
+        <style>
+            body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f2f5; margin: 0; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+            .header-container { text-align: center; margin-bottom: 40px; }
+            h1 { color: #1a202c; font-size: 2.5rem; }
+            .nav-link { margin-bottom: 20px; display: inline-block; color: #3182ce; text-decoration: none; font-weight: bold; }
+            .btn { background: #3182ce; color: white; border: none; padding: 12px 24px; font-size: 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.2s; }
+            .btn:hover { background: #2b6cb0; }
+            #card-container { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; width: 100%; max-width: 1200px; }
+            .card { width: 320px; height: 220px; perspective: 1000px; cursor: pointer; }
+            .card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-radius: 15px; }
+            .card.flipped .card-inner { transform: rotateY(180deg); }
+            .card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px; box-sizing: border-box; border-radius: 15px; background: white; border: 1px solid rgba(0,0,0,0.05); }
+            .card-back { background: #fffdf0; transform: rotateY(180deg); border-top: 6px solid #ecc94b; }
+            code { background: #edf2f7; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        </style>
+    </head>
+    <body>
+        <div class="header-container">
+            <a href="index.html" class="nav-link">← Tillbaka till menyn</a>
+            <h1>Namngivning</h1>
+            <button class="btn" onclick="shuffleCards()">🔀 Blanda korten</button>
+        </div>
+        <div id="card-container">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>male_name = "Hassan"</h2></div>
+                <div class="card-back"><p>✅ Rätt (Snake Case: små bokstäver och understreck)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>home_address = "Storvägen 13"</h2></div>
+                <div class="card-back"><p>✅ Rätt (Använder understreck istället för mellanslag)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>PI = 3.14159</h2></div>
+                <div class="card-back"><p>✅ Rätt (Stora bokstäver för konstanter som inte ändras)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>MEANING_OF_LIFE = 42</h2></div>
+                <div class="card-back"><p>✅ Rätt (Konstant namngiven med stora bokstäver)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>number_2 = 22</h2></div>
+                <div class="card-back"><p>✅ Rätt (Siffror är tillåtna så länge de inte står först)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>_secret = "dold"</h2></div>
+                <div class="card-back"><p>✅ Rätt (Namnet får börja med ett understreck)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>MAle NaME = "Hassan"</h2></div>
+                <div class="card-back"><p>❌ Fel (Innehåller mellanslag och inkonsekvent stora bokstäver)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>2number = 22</h2></div>
+                <div class="card-back"><p>❌ Fel (Namnet får inte börja med en siffra)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>home address = "Storvägen 13"</h2></div>
+                <div class="card-back"><p>❌ Fel (Mellanslag är inte tillåtna i variabelnamn)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>variabel_på_svenska = 67</h2></div>
+                <div class="card-back"><p>❌ Fel (Undvik svenska tecken som å, ä, ö i kod)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>for = 5</h2></div>
+                <div class="card-back"><p>❌ Fel (<code>for</code> är ett reserverat ord i Python)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>Namnet måste börja med...</h2></div>
+                <div class="card-back"><p>En bokstav eller ett understreck (<code>_</code>)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>Vilka tecken är tillåtna?</h2></div>
+                <div class="card-back"><p>Bokstäver (A-z), siffror (0-9) och understreck (<code>_</code>)</p></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front"><h2>När ska man använda bara STORA_BOKSTÄVER?</h2></div>
+                <div class="card-back"><p>När värdet är en konstant (något som inte ska ändras)</p></div>
+            </div>
+        </div>
+        </div>
+        <script>
+            function shuffleCards() {
+                const container = document.getElementById('card-container');
+                const cards = Array.from(container.getElementsByClassName('card'));
+                for (let i = cards.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    container.appendChild(cards[j]);
+                }
+                cards.forEach(card => card.classList.remove('flipped'));
+            }
+        </script>
+    </body>
+    </html>
+    
